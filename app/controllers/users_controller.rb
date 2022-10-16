@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def edit
-    @user=User.new
+    @user = User.new
+    @books = @user.books
   end
 
   def index
@@ -12,15 +13,19 @@ class UsersController < ApplicationController
     #@books = @user.books
   end
 
-   def create
-    #@user = User.new(params[:user])   #これはRails3までの実装
+   
+
+def update
     @user = User.find(params[:id])
-    if @user.save
-      #保存の成功をここで扱う
-      redirect_to '/users/:id'
-    else
-      render 'root'
-    end
-   end
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
+  end
+
+
+private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image)
+  end
 
 end
