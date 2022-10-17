@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   end
 
   def index
+    @user　= User.find(params[:id])
     @user = current_user#触らない
-    
+    @users = User.all
   end
 
   def show
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.user_id = current_user.id
     @user.save
-    
+     redirect_to books_path
    end
   
    

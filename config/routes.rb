@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   devise_for :users#deviseを上にしておく
   root to: 'homes#top'
   resources :users, only: [:show, :index, :edit, :create, :update]
