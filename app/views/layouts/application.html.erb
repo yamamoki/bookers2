@@ -31,32 +31,36 @@
 
       <li>
        <%= link_to root_path, class: 'nav-link text-light' do %>
-      <i class="fa-solid fa-house"></i>Home
-      <% end %>
+      <i class="fa-solid fa-house"></i>Homm<% end %>
       </li>
     <% if user_signed_in? %>
 <!--ログイン後-->
       <li>
-        <%= link_to "Users", users_path, class: 'nav-link text-light fa-solid fa-users' %>
+        <%= link_to users_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-users"></i>Users<% end %>
       </li>
-      </li>
-        <%= link_to "Books", books_path, class: 'nav-link text-light fa-solid fa-book-open' %>
       <li>
-      　<%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light fa-solid fa-right-from-bracket' %>
-
-
-     </li>
+        <%= link_to books_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-book-open"></i>Books<% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-right-from-bracket"></i>Log out<% end %>
+      </li>
     <% else %>
 <!--ログイン前-->
       <li>
-        <%= link_to "About", about_path, class: 'nav-link text-light fa-solid fa-link' %>
+        <%= link_to about_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-link"></i>About<% end %>
       </li>
       <li>
-        <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light fa-solid fa-user-plus' %>
+        <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-user-plus"></i>Sign up<% end %>
       </li>
       <li>
-        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light fa-solid fa-right-to-bracket' %>
-      </li>
+        <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-right-to-bracket"></i>Log in<% end %>
+      </lk>
     <% end %>
 
     </ul>

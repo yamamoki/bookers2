@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user = User.new
+    @user = current_user
   end
 
   def index
@@ -16,11 +17,11 @@ class UsersController < ApplicationController
   end
 
    def create
-    @post_image = User.new(user_params)
-    @post_image.user_id = current_user.id
-    @post_image.save
+    @user = User.new(user_params)
+    @user.user_id = current_user.id
+    @user.save
     
-  end
+   end
   
    
 
@@ -34,7 +35,7 @@ end
 private
 
   def user_params
-    params.require(:user).permit(:name, :image)
+    params.require(:user).permit(:name, :image, :introduction)
   end
 
 end
