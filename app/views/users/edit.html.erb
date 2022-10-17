@@ -4,21 +4,21 @@
      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
 <h2>Users info</h2>
-  <%= form_with model: @post_image do |f| %>
-  
+  <%= form_with model:@user,url: user_path(@user.id), method: :patch do |f| %>
+
 <div class="form-group">
   <label for="user_name">Name</label>
-  <input class="form-control book_title"></input>
+  <%= f.text_field :name, class:"form-control name", id:"user_name"%>
 </div>
-  
- <div class="form-group">  
-  <label for="inputImage">Image</label><br>
-  <%= f.file_field :profile_image, accept: "image/*" %>
+
+ <div class="form-group">
+  <label for="user-image">Image</label><br>
+  <%= f.file_field :profile_image, class:"form-control-file user_image",accept: "image/*", id:"user_profile_image" %>
  </div>
 
 <div class="form-group">
  <label for="user_introduction">Introduction</label>
- <textarea class="form-control book_body"></textarea>
+ <%= f.text_area :introduction, class:"form-control introduction", id:"user_introduction"%>
 </div>
 
     <%= f.submit "Update User", class:"btn btn-secondary" %>
@@ -26,5 +26,5 @@
 
     </div>
    </div>
-  
+
   </div>

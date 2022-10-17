@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
   def edit
-     @books =Book.new
+     @user = current_user
   end
 
   def index
-    @books = Book.all
+     @user = current_user
   end
 
 def destroy

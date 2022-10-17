@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
      <script src="https://kit.fontawesome.com/b832ec735d.js" crossorigin="anonymous"></script>
-    
+
     <title>Bookers2</title>
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -30,50 +30,38 @@
    <ul class="navbar-nav ml-auto">
 
       <li>
-       <a class="nav-link text-light" href="/users/:id">
-        <i class="fa-sharp fa-solid fa-house-chimney"></i>
-         Home</a>
+       <%= link_to root_path, class: 'nav-link text-light' do %>
+      <i class="fa-solid fa-house"></i>Home
+      <% end %>
       </li>
     <% if user_signed_in? %>
 <!--ログイン後-->
       <li>
-        <a class="nav-link text-light" href="/users">
-          <i class="fa-solid fa-users"></i>
-          Users</a>
+        <%= link_to "Users", users_path, class: 'nav-link text-light fa-solid fa-users' %>
       </li>
+      </li>
+        <%= link_to "Books", books_path, class: 'nav-link text-light fa-solid fa-book-open' %>
       <li>
-        <a class="nav-link text-light" href="/books">
-          <i class="fa-solid fa-book-open"></i>
-          Books</a>
-      </li>
-      <li>
-        <a class="nav-link text-light" rel="nofollow"  date-method="delete" href="/users/sign_out">
-           <i class="fa-solid fa-right-from-bracket"></i>
-          Log out</a>
-         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-      </li>
+      　<%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light fa-solid fa-right-from-bracket' %>
+
+
+     </li>
     <% else %>
 <!--ログイン前-->
       <li>
-        <a class="nav-link text-light" href="/homes/about">
-          <i class="fa-solid fa-link"></i>
-          About</a>
+        <%= link_to "About", about_path, class: 'nav-link text-light fa-solid fa-link' %>
       </li>
       <li>
-        <a class="nav-link text-light" href="/users/sign_up">
-          <i class="fa-solid fa-user-plus"></i>
-          Sign up</a>
+        <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-light fa-solid fa-user-plus' %>
       </li>
       <li>
-        <a class="nav-link text-light" href="/users/sign_in">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          Log in</a>
+        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light fa-solid fa-right-to-bracket' %>
       </li>
     <% end %>
 
     </ul>
    </div>
- 
+
   </header>
     <%= yield %>
 
