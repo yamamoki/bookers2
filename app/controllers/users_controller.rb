@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @user = User.new
-    @user = current_user
+    #@user = User.new
+    #@user = current_user
   end
 
   def index
@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @books = @user.books
-    #@users=User.all
+    @user = current_user#
+    #@books = @user.books
+    @users=User.all
   end
 
    def create
-    @user = User.new(user_params)
+    @user = User.edit(user_params)
     @user.user_id = current_user.id
     @user.save
      redirect_to books_path

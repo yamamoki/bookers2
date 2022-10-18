@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   def index
      @books=Book.all
      @book=Book.new
+     @users=User.all
   end
 
 def destroy
@@ -25,15 +26,15 @@ def create#保存機能
     render :index
     end
 end
-  
+
   def show
     @book=Book.find(params[:id])
   end
-  
+
   private
   # ストロングパラメータ
   def book_params
     params.require(:book).permit(:title, :body, :image)
   end
-  
+
 end

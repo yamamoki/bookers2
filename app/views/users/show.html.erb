@@ -4,9 +4,9 @@
 <%= render 'books/list', user: @user %><!--@userか?-->
 <div class="col-lg-8">
 
-<h2>Users</h2>
+<h2>Books</h2>
 <table class="table table-hover table-inverse">
- <% @books.each do |book| %>
+ <% @users.each do |user| %>
 
 <thead>
      <tr>
@@ -18,10 +18,10 @@
     </thead>
 
   <tr>
-  
+
   <td><%= user.name %></td>
   <td>
-  <%= link_to 'Show', book_path(book.id) %></tb>
+  <%= link_to 'Show', user_path(user.id) %></tb>
   </tr>
 
   <% end %>
