@@ -12,6 +12,10 @@ validates :name, presence: true
 
   has_many :books, dependent: :destroy
 
+validates :name,
+    length: { minimum: 2, maximum: 20 }
+validates :introduction,
+    length: { minimum: 0, maximum: 50 }
 
    def get_profile_image
     unless profile_image.attached?
