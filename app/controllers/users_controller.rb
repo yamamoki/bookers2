@@ -7,14 +7,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = current_user#触らない
+    @user = current_user#触らない自分自身ログイン済み
     @users = User.all
   end
 
   def show
-    @user=User.find(params[:id])
+    @user=User.find(params[:id])#触らないたくさんのユーザーの一人
     #@books = @user.books
     @users=User.all
+    @books=Book.all
   end
 
    def create
@@ -25,13 +26,15 @@ class UsersController < ApplicationController
    end
 
 
-
 def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
+    flash[:notice] ="You have updated user successfully"
     redirect_to user_path(@user.id)
+  else
+    render :edit
 end
-
+end
 
 private
 

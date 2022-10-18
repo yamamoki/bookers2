@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   def index
      @books=Book.all
      #@book=Book.new
-     @user=current_user
+     @user=current_user#触らない
   end
 
 def destroy
@@ -15,26 +15,31 @@ def destroy
     redirect_to '/books'
 end
 
-def create#保存機能
-    @book=Book.new(book_params)
-    if @book.save
-    #投稿が成功
-    flash[:notice] ="Book was successfully created."
-    redirect_to book_path(@book)
-    else
-    @books=Book.all
-    render :index
-    end
+def create
+    @book = Book.edit(user_params)
+    @book.user_id = current_user.id
+    @book.save
+    flash[:notice] ="You have created book successfully."
+     redirect_to book_path(user.id)
 end
 
+def update
+    @book = Book.find(params[:id])
+    @book.update(user_params)
+    flash[:notice] ="You have updated book successfully"
+    redirect_to book_path(@user.id)
+end
+
+
   def show
-    @book=Book.find(params[:id])
+    @book=Book.find(params[:id])#触らない
+
   end
 
   private
   # ストロングパラメータ
   def book_params
-    params.require(:book).permit(:title, :body, :image)
+    params.require(:book).permit(:title, :body, :user_id)
   end
 
 end

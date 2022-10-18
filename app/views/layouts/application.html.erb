@@ -29,12 +29,13 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
    <ul class="navbar-nav ml-auto">
 
-      <li>
-       <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
-      <i class="fa-solid fa-house"></i>Homm<% end %>
-      </li>
+      
     <% if user_signed_in? %>
 <!--ログイン後-->
+      <li>
+       <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
+      <i class="fa-solid fa-house"></i>Home<% end %>
+      </li>
       <li>
         <%= link_to '/users', class: 'nav-link text-light' do %>
         <i class="fa-solid fa-users"></i>Users<% end %>
@@ -49,6 +50,10 @@
       </li>
     <% else %>
 <!--ログイン前-->
+      <li>
+       <%= link_to root_path, class: 'nav-link text-light' do %>
+      <i class="fa-solid fa-house"></i>Home<% end %>
+      </li>
       <li>
         <%= link_to about_path, class: 'nav-link text-light' do %>
         <i class="fa-solid fa-link"></i>About<% end %>
