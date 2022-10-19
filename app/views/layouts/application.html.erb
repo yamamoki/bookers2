@@ -38,37 +38,37 @@
 <!--ログイン後-->
       <li>
        <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
-      <i class="fa-solid fa-house"></i>Home<% end %>
+      <i class="fas fa-home icon"></i>Home<% end %>
       </li>
       <li>
         <%= link_to '/users', class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-users"></i>Users<% end %>
+        <i class="fas fa-solid fa-users"></i>Users<% end %>
       </li>
       <li>
         <%= link_to '/books', class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-book-open"></i>Books<% end %>
+        <i class="fas fa-solid fa-book-open"></i>Books<% end %>
       </li>
       <li>
         <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-right-from-bracket"></i>Log out<% end %>
+        <i class="fas fa-sign-out-alt icon"></i>Log out<% end %>
       </li>
     <% else %>
 <!--ログイン前-->
       <li>
        <%= link_to root_path, class: 'nav-link text-light' do %>
-      <i class="fa-solid fa-house"></i>Home<% end %>
+      <i class="fas fa-home icon"></i>Home<% end %>
       </li>
       <li>
-        <%= link_to about_path, class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-link"></i>About<% end %>
+        <%= link_to '/home/about', class: 'nav-link text-light' do %>
+        <i class="fas fa-solid fa-link"></i>About<% end %>
       </li>
       <li>
         <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-user-plus"></i>Sign up<% end %>
+        <i class="fas fa-solid fa-user-plus"></i>Sign up<% end %>
       </li>
       <li>
         <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
-        <i class="fa-solid fa-right-to-bracket"></i>Log in<% end %>
+        <i class="fas fa-sign-in-alt icon"></i>Log in<% end %>
       </lk>
     <% end %>
 

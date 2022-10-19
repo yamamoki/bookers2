@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :profile_image
 
-validates :name, presence: true
+validates :name, uniqueness: true
 validates :name,
     length: { minimum: 2, maximum: 20 }
 validates :introduction,

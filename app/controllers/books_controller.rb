@@ -12,8 +12,10 @@ class BooksController < ApplicationController
 
 def destroy
     book = Book.find(params[:id])
-    book.destroy
+    if book.destroy #
+     flash[:notice] ="Signed out successfully."  #
     redirect_to '/books'
+    end
 end
 
 def create
@@ -51,4 +53,15 @@ end
     params.require(:book).permit(:title, :body, :user_id)
   end
 
+# ここからアクセス制限
+  def is_matching_login_user
+    @book.user = params[:id].to_i
+    login_user_id = current_user.id
+    if(user_id != login_user_id)
+      redirect_to '/books'
+    end
+  end
+  # ここまで追加
+
 end
+
