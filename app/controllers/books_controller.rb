@@ -30,10 +30,10 @@ def create
 end
 
 def update
-    @book = Book.find(params[:id])
-    @book.update(user_params)
+    @book = Book.find(params[:id]) 
+    @book.update(book_params)
     flash[:notice] ="You have updated book successfully"
-    redirect_to book_path(@user.id)
+    redirect_to book_path(@book)
 
 end
 
