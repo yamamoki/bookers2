@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])#触らないたくさんのユーザーの一人
     #@books = @user.books
     @users=User.all
-    @books=Book.all
+    @books=@user.books
   end
 
    def create
@@ -32,7 +32,7 @@ def update
     redirect_to user_path(@user.id)
     else
     render :edit
-    end
+end
 end
 
 private
