@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.edit(user_params)
     @user.user_id = current_user.id
     @user.save
+    flash[:notice] ="You have created book successfully."
      redirect_to books_path
    end
 
@@ -32,7 +33,7 @@ def update
     redirect_to user_path(@user.id)
     else
     render :edit
-end
+    end
 end
 
 private

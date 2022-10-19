@@ -17,7 +17,7 @@
     </thead>
 <% @users.each do |user| %>
   <tr>
-  <td><%= image_tag user.get_profile_image %></td><!--ユーザーの写真が欲しい--
+  <td><%= image_tag user.get_profile_image %></td><!--ユーザーの写真が欲しい-->
   <td><%= user.name %></td>
   <td>
   <%= link_to 'Show', user_path(user) %></tb>
