@@ -299,7 +299,7 @@ Failures:
      [31m  expected to find link "" with href "/users/1" but there were no matches[0m
      [36m# ./spec/system/03_finishing_touches_spec.rb:277:in `block (5 levels) in <main>'[0m
 
-Finished in 46.27 seconds (files took 3.08 seconds to load)
+Finished in 46.16 seconds (files took 3.23 seconds to load)
 [31m199 examples, 2 failures[0m
 
 Failed examples:
