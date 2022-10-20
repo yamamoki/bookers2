@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
+    before_action :is_matching_login_user,only:[:edit, :update]
   def edit
      @user = current_user
     @book = Book.find(params[:id])
+
+
+
   end
 
   def index
@@ -55,10 +59,10 @@ end
 
 # ここからアクセス制限
   def is_matching_login_user
-    @book.user = params[:id].to_i
-    login_user_id = current_user.id
-    if(user_id != login_user_id)
-      redirect_to '/books'
+    @book = Book.find(params[:id])
+    @user = @book.user
+    if current_user!= @user
+     redirect_to books_path
     end
   end
   # ここまで追加
