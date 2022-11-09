@@ -3,9 +3,6 @@ class BooksController < ApplicationController
   def edit
      @user = current_user
     @book = Book.find(params[:id])
-
-
-
   end
 
   def index
