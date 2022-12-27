@@ -15,7 +15,7 @@ def destroy
     book = Book.find(params[:id])
     if book.destroy #
      flash[:notice] ="Signed out successfully."  #
-    redirect_to '/books'
+    redirect_to "/books"
     end
 end
 
